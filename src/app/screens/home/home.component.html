@@ -1,0 +1,23 @@
+<div *ngIf="errorMessage; else playground">
+  <div id="error-message" [innerHTML]="errorMessage"></div>
+</div>
+
+<ng-template #playground>
+  <div id="prompt-area">
+    <form (ngSubmit)="onSubmit()">
+      <label>
+        Prompt
+        <textarea
+          [(ngModel)]="promptText"
+          id="prompt-input"
+          name="prompt"
+        ></textarea>
+      </label>
+      <button type="submit">Submit Prompt</button>
+      <button type="button" (click)="resetSession()">Reset Session</button>
+    </form>
+
+    <h2>Responses tet</h2>
+    <div [innerHTML]="generatedResponse"></div>
+  </div>
+</ng-template>
