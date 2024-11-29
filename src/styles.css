@@ -2,3 +2,39 @@
  * Copyright 2024 ZC
  * SPDX-License-Identifier: Apache-2.0
  */
+.btn {
+  border-radius: 0.6rem;
+}
+
+.bg-kif-kif {
+  background: linear-gradient(108deg, #0894ff, #c959dd 34%, #ff2e54);
+  color: transparent;
+  background-clip: text;
+}
+
+.color-kif-kif {
+  color: linear-gradient(108deg, #0894ff, #c959dd 34%, #ff2e54 68%, #ff9004);
+}
+
+.color-sec {
+  color: #8b949e;
+}
+
+.btn-info {
+  background-color: #8808ff;
+  background: linear-gradient(108deg, #0894ff, #8808ff);
+  color: white;
+  border: 1px solid #919de8;
+}
+
+.btn-secondary {
+  background-color: #b234b8;
+  color: white;
+  border: 1px solid #a13da7;
+}
+
+.btn-info:hover {
+  background-color: #b234b8;
+  color: rgb(255, 255, 255);
+  border: 1px solid #a13da7;
+}

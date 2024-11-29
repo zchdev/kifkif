@@ -3,21 +3,50 @@
 </div>
 
 <ng-template #playground>
-  <div id="prompt-area">
-    <form (ngSubmit)="onSubmit()">
-      <label>
-        Prompt
-        <textarea
-          [(ngModel)]="promptText"
-          id="prompt-input"
-          name="prompt"
-        ></textarea>
-      </label>
-      <button type="submit">Submit Prompt</button>
-      <button type="button" (click)="resetSession()">Reset Session</button>
-    </form>
+  <div class="view-container">
+    <div class="sky-box">
+      <div class="container mb-3">
+        <div class="header">
+          <div class="bg-kif-kif title">Kif Kif</div>
+        </div>
+        <div id="prompt-area">
+          <form (ngSubmit)="onSubmit()">
+            <div>
+              <input
+                type="text"
+                [(ngModel)]="promptText"
+                id="prompt-input"
+                name="prompt"
+                class="form-control"
+              />
 
-    <h2>Responses tet</h2>
-    <div [innerHTML]="generatedResponse"></div>
+              <div class="d-flex justify-content-center mt-3">
+                <button
+                  class="btn btn-info mr-2"
+                  type="submit"
+                  *ngIf="!rawResponse"
+                >
+                  Search
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  (click)="resetSession()"
+                  *ngIf="rawResponse"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card w-75 mt-3 mb-3" *ngIf="rawResponse">
+        <div class="card-body">
+          <div class="result-container" [innerHTML]="generatedResponse"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-template>

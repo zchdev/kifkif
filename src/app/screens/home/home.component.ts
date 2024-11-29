@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PromptService } from '../../services/prompt.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { txtTools } from 'src/app/tools/txtTools';
@@ -6,6 +6,7 @@ import { txtTools } from 'src/app/tools/txtTools';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
   // UI Elements
@@ -43,10 +44,11 @@ export class HomeComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    console.log('promt ', this.promptText);
-    if (!this.promptText.trim()) return;
-
-    const customPrompt = `Given this specific item: ${this.promptText}, search for similar or alternative options that match or closely resemble its features, purpose, and quality. The alternatives should be in the same category and provide varied options across different brands, styles, or functionalities. Ensure the recommendations are well-suited to the item type, include both well-known and lesser-known alternatives when relevant.`;
+    let customPrompt;
+    !this.promptText.trim()
+      ? (customPrompt =
+          " the expression 'c'est kif-kif' in french . can you suggest more context  ? ")
+      : (customPrompt = `Given this specific item: ${this.promptText}, search for similar or alternative options that match or closely resemble its features, purpose, and quality. The alternatives should be in the same category and provide varied options across different brands, styles, or functionalities. Ensure the recommendations are well-suited to the item type, include both well-known and lesser-known alternatives when relevant.`);
 
     try {
       const responseStream = await this.apiService.promptStreaming(

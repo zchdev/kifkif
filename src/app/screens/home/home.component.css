@@ -1,0 +1,63 @@
+.view-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container {
+  margin-top: calc(100% - 85%);
+}
+
+.form-control {
+  height: 46px;
+  width: 50%;
+  margin: auto;
+}
+
+.header {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.title {
+  display: inline-block;
+}
+
+.btn-info {
+  width: 170px;
+}
+
+.btn-secondary {
+  width: 170px;
+}
+
+.result-container {
+  padding: 0px 45px;
+}
+
+.card {
+  border-radius: 0.6rem;
+  border: 1px solid #7202dc;
+  margin: auto;
+}
+
+.form-control {
+  border: 1px solid #c790d1;
+}
+
+/* INNER HTML */
+h2 {
+  background: linear-gradient(108deg, #0894ff, #c959dd 34%, #ff2e54);
+  color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+b {
+  color: #7202dc;
+}
+
+br + b {
+  background: linear-gradient(108deg, #0894ff, #c959dd 34%, #ff2e54);
+  color: transparent;
+  background-clip: text;
+}
