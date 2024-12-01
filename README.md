@@ -1,7 +1,8 @@
 # Kifkif
 
-This is a project made possible thanks to ([@tomayac](https://github.com/tomayac))
-This is his original Javascript Chrome [Prompt API Playground](https://tomayac.github.io/prompt-api-playground/)
+This is a project made possible thanks to ([@tomayac](https://github.com/tomayac)). This is his original Javascript Chrome [Prompt API Playground](https://tomayac.github.io/prompt-api-playground/)
+
+This Javascript project served as a starting point to KifKif : Chrome AI aleternatives finder built with Angular.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 
