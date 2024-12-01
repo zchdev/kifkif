@@ -1,5 +1,7 @@
-<div *ngIf="errorMessage; else playground">
+<div class="text-center" *ngIf="errorMessage; else playground">
+  <app-error-screen></app-error-screen>
   <div id="error-message" [innerHTML]="errorMessage"></div>
+  <a [routerLink]="['/']" class="btn btn-warning my-2 mt-4">Back To Home</a>
 </div>
 
 <ng-template #playground>
@@ -42,7 +44,16 @@
         </div>
       </div>
 
-      <div class="card w-75 mt-3 mb-3" *ngIf="rawResponse">
+      <div
+        class="d-flex justify-content-center"
+        *ngIf="isLoading && !generatedResponse"
+      >
+        <div class="spinner-grow bg-blue mr-1" role="status"></div>
+        <div class="spinner-grow bg-purple mr1" role="status"></div>
+        <div class="spinner-grow bg-pink" role="status"></div>
+      </div>
+
+      <div class="card w-75 mt-3 mb-3" *ngIf="generatedResponse">
         <div class="card-body">
           <div class="result-container" [innerHTML]="generatedResponse"></div>
         </div>

@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     topK: '',
   };
   session: any = null;
+  isLoading = false;
 
   constructor(
     private apiService: PromptService,
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
+    this.isLoading = true;
     let customPrompt;
     !this.promptText.trim()
       ? (customPrompt =
@@ -74,6 +76,7 @@ export class HomeComponent implements OnInit {
     } catch (error: any) {
       this.errorMessage = `Error: ${error.message}`;
     } finally {
+      this.isLoading = false;
       this.updateStats();
     }
   }

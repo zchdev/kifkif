@@ -36,7 +36,8 @@
 
 .card {
   border-radius: 0.6rem;
-  border: 1px solid #7202dc;
+  border: 1px transparent;
+  box-shadow: 0 4px 8px 0 #c99bf4, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: auto;
 }
 
@@ -60,4 +61,16 @@ br + b {
   background: linear-gradient(108deg, #0894ff, #c959dd 34%, #ff2e54);
   color: transparent;
   background-clip: text;
+}
+
+.bg-purple {
+  background-color: #7202dc;
+}
+
+.bg-blue {
+  background-color: #0894ff;
+}
+
+.bg-pink {
+  background-color: #c959dd;
 }
