@@ -134,4 +134,11 @@ export class HomeComponent implements OnInit {
       setTimeout(that.smoothingTextOutPut, 22, that);
     }
   }
+
+  /**
+   * force window refresh to avoid possible crash
+   */
+  navigateHome() {
+    window.location.reload();
+  }
 }

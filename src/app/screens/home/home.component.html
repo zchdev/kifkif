@@ -1,7 +1,7 @@
 <div class="text-center" *ngIf="errorMessage; else playground">
   <app-error-screen></app-error-screen>
   <div id="error-message" [innerHTML]="errorMessage"></div>
-  <a [routerLink]="['/']" class="btn btn-warning my-2 mt-4">Back To Home</a>
+  <a (click)="navigateHome()" class="btn btn-warning my-2 mt-4">Back To Home</a>
 </div>
 
 <ng-template #playground>
