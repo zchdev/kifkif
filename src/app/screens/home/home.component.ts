@@ -60,8 +60,12 @@ export class HomeComponent implements OnInit {
       this.formattedResponse = '';
       for await (const chunk of responseStream) {
         fullResponse = chunk.trim();
-        this.rawResponse = fullResponse;
         this.formattedResponse = txtTools.parseMarkdown(fullResponse);
+        //this me trying to smooth the text output display but it didn't work as expected
+        // this.smoothingTextOutPut(this);
+        // const sanitized = this.sanitizer.bypassSecurityTrustHtml(
+        //   this.rawResponse
+        // );
         const sanitized = this.sanitizer.bypassSecurityTrustHtml(
           this.formattedResponse
         );
@@ -117,5 +121,14 @@ export class HomeComponent implements OnInit {
       tokensSoFar: tokensSoFar.toLocaleString(),
       topK: topK.toLocaleString(),
     };
+  }
+
+  smoothingTextOutPut(that: any) {
+    let full_txt_length = that.formattedResponse.length;
+    let actual_length = that.rawResponse.length;
+    if (actual_length < full_txt_length) {
+      that.rawResponse += that.formattedResponse[actual_length];
+      setTimeout(that.smoothingTextOutPut, 22, that);
+    }
   }
 }
